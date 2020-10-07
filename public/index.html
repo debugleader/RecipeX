@@ -11,9 +11,86 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <style>
+      .intro {
+        background: #1e947e;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Heebo", sans-serif;
+      }
+      .slider {
+        background: rgb(58, 218, 151);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(100%);
+      }
+
+      .intro-text {
+        color: rgb(233, 233, 233);
+        font-family: "Heebo", sans-serif;
+        font-size: 3rem;
+      }
+
+      .hide {
+        background: #1e947e;
+        overflow: hidden;
+      }
+
+      .hide span {
+        transform: translateY(100%);
+        display: inline-block;
+      }
+      @media all and (max-width: 900px) {
+        .intro,
+        .hide,
+        .intro-text,
+        .slider {
+          opacity: 0;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
     <title>RecipeX</title>
   </head>
   <body>
+    <div class="intro">
+      <div class="intro-text">
+        <h1 class="hide">
+          <span class="text">Creating the</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text">best recipes with</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text">RecipeX!</span>
+        </h1>
+      </div>
+    </div>
+    <div class="slider"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
+
+      tl.to(".text", { y: "0%", duration: 1, stagger: 0.25 });
+      tl.to(".slider", { y: "-100%", duration: 1.5, delay: 0.5 });
+      tl.to(".intro", { y: "-100%", duration: 1 }, "-=1");
+    </script>
     <div id="root"></div>
   </body>
 </html>
