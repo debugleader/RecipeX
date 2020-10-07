@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import Recipe from "./Recipe";
+import Recipebig from "./Recipebig";
 import Loader from "./Loader";
+import "./App.css";
 
 export default function App() {
   const APP_ID = "02ed5e12";
@@ -11,18 +12,28 @@ export default function App() {
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("avocado");
+  const [query, setQuery] = useState("banana");
   const [stylos, setStylos] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [windowSize, setWindowSize] = useState({});
   const REQ = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+  useEffect(() => {
+    setWindowSize(window.matchMedia("(max-width: 800px)"));
+  }, []);
 
   useEffect(() => {
     getRecipes();
   }, [query]);
-
+  var i = 0;
   const newId = (prefix = "id") => {
-    lastId++;
-    return `${prefix}${lastId}`;
+    if (i == 0) {
+      lastId++;
+      i++;
+    } else {
+      i--;
+    }
+    return lastId;
   };
 
   const getRecipes = async () => {
@@ -47,6 +58,17 @@ export default function App() {
   const final = recipes.map((recipe) => (
     <Recipe
       key={newId()}
+      infoKey={newId()}
+      title={recipe.recipe.label}
+      calories={recipe.recipe.calories}
+      image={recipe.recipe.image}
+    />
+  ));
+
+  const notFinal = recipes.map((recipe) => (
+    <Recipebig
+      key={newId()}
+      infoKey={newId()}
       title={recipe.recipe.label}
       calories={recipe.recipe.calories}
       image={recipe.recipe.image}
@@ -84,7 +106,7 @@ export default function App() {
         style={loading ? { opacity: 1 } : { opacity: 0 }}
         loading={loading}
       />
-      <div className="container">{final}</div>
+      <div className="container">{windowSize.matches ? final : notFinal}</div>
       <h1 style={stylos ? { opacity: 1 } : { opacity: 0 }} className="err">
         Sorry, your search query did not match any result in our API!
       </h1>
