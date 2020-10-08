@@ -9,7 +9,7 @@ Recipex is a collection of recipes, and information about the preparation and se
 
 * Use the web hosted version.
 
-> [![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](http://msgx.herokuapp.com/)
+> [![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://debugleader.github.io/RecipeX/)
 
 # How?
 
@@ -21,4 +21,5 @@ It consumes the [Edamam recipe API](https://developer.edamam.com/edamam-recipe-a
 
 ---
 
-> [![forthebadge](https://forthebadge.com/images/badges/powered-by-jeffs-keyboard.svg)](https://debugleader.github.io)
+> [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://debugleader.github.io)
+
