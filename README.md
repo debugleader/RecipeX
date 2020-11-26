@@ -1,6 +1,12 @@
 # RecipeX
 RecipeX is a front-end **web application** that is built using React and React hooks to fetch recipes from an API and display them to the end user. It uses many technologies, and libraries like AOS, GSAP...
 
+---
+
+> <img src="https://images.unsplash.com/photo-1500195186100-dbd3e6f3251b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" width="600" />
+
+---
+
 # Why?
 
 Recipex is a collection of recipes, and information about the preparation and serving of foods. At its best, RecipeX is also a chronicle and treasury of the fine art of cooking, an art whose masterpieces—created only to be consumed—would otherwise be lost.
